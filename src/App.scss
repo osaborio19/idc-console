@@ -1,0 +1,51 @@
+@import "~@intc/dlux-bootstrap/dist/css/dlux.css";
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#root {
+    height: 100%;
+}
+
+.dropdown-menu-right>.dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+}
+
+.icon-question {
+    fill: white;
+}
+
+.space {
+    width: 1px;
+    height: auto;
+    display: inline-block;
+}
+
+.main {
+    min-height: 72.7vh;
+}
+
+.footer-link-1 {
+    font-size: 0.75rem;
+    text-align: left;
+}
+
+.footer-link-2 {
+    font-size: 0.7rem;
+}
+
+.footer-link {
+    font-size: 0.7rem;
+}
+
+.footer-md-logo {
+    max-height: 2.3rem !important;
+}
