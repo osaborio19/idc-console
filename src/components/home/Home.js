@@ -1,12 +1,22 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { connect } from 'react-redux';
 import * as actions from "../../store/index";
+import { useMsal, useIsAuthenticated } from "@azure/msal-react";
 
 const Home = (props) => {
 
-    const Session = props.Session ? props.Session : null
+    const [name, setName] = useState(null);
+    const { accounts } = useMsal();
+    const isAuthenticated = useIsAuthenticated()
 
-    const name = Session.account ? Session.account.name : null
+    useEffect(() => {
+
+        if (isAuthenticated) {
+            
+            setName(accounts[0].name)
+        }
+
+    })
 
     return (
         <div>Welcome {name}</div>
@@ -16,7 +26,8 @@ const Home = (props) => {
 const mapStateToProps = state => {
     return {
         //Add here your reducers needed
-        Session: state.Session
+        account: state.Session.account,
+        isAuthenticated: state.Session.isAuthenticated
     };
 };
 
