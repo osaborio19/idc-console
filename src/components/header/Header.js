@@ -7,9 +7,13 @@ import { BsQuestionCircle } from "react-icons/bs";
 
 const Header = (props) => {
 
-  const userData = props.userData
+  const userDetails = props.userDetails
 
-  const userName = userData.name ? userData.name : null
+  let userName = null
+
+  if(userDetails){
+    userName = userDetails.name
+  }
 
   return (
     <>

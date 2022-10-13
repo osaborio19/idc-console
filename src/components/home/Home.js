@@ -5,21 +5,16 @@ import { useMsal, useIsAuthenticated } from "@azure/msal-react";
 
 const Home = (props) => {
 
-    const [name, setName] = useState(null);
-    const { accounts } = useMsal();
-    const isAuthenticated = useIsAuthenticated()
+    const userDetails = props.account
 
-    useEffect(() => {
-
-        if (isAuthenticated) {
-            
-            setName(accounts[0].name)
-        }
-
-    })
+    let userName = null
+  
+    if(userDetails){
+      userName = userDetails.name
+    }
 
     return (
-        <div>Welcome {name}</div>
+        <div>Welcome {userName}</div>
     )
 }
 
