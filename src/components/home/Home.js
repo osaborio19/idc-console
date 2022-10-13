@@ -8,13 +8,19 @@ const Home = (props) => {
     const userDetails = props.account
 
     let userName = null
-  
-    if(userDetails){
-      userName = userDetails.name
+
+    if (userDetails) {
+        userName = userDetails.name
     }
 
     return (
-        <div>Welcome {userName}</div>
+        <div>
+            Welcome {userName}
+            <br/>
+            Your Token
+            <br/>
+            {props.token}
+        </div>
     )
 }
 
@@ -22,6 +28,7 @@ const mapStateToProps = state => {
     return {
         //Add here your reducers needed
         account: state.Session.account,
+        token: state.Session.token,
         isAuthenticated: state.Session.isAuthenticated
     };
 };

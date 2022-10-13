@@ -5,14 +5,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LoginRequest, RedirectLogout } from "../../config/AuthConfig";
 import { connect } from 'react-redux';
 import * as actions from "../../store/index";
-import Header from "../../components/header/Header"
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 import Home from '../../components/home/Home';
 
 const Routes = (props) => {
 
     //Todo 
     //Read token to get roles
-    //Create guard baes on roles
+    //Create guard base on roles in token
 
     const { accounts, instance } = useMsal();
     const isAuthenticated = useIsAuthenticated()
@@ -58,14 +59,17 @@ const Routes = (props) => {
 
     return (
         <Router>
-            <Header userDetails={props.account} logoutHandler={logoutHandler}/>
-            <Switch>
-                <Route
-                    exact
-                    path="/"
-                    component={Home}
-                />
-            </Switch>
+            <Header userDetails={props.account} logoutHandler={logoutHandler} />
+            <div className="main">
+                <Switch>
+                    <Route
+                        exact
+                        path="/"
+                        component={Home}
+                    />
+                </Switch>
+            </div>
+            <Footer/>
         </Router>
     )
 
